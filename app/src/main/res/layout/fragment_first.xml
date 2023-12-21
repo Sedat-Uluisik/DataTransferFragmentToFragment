@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FirstFragment">
+
+    <EditText
+        android:id="@+id/edtData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/text"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/select_data_transfer_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtData"/>
+
+    <RadioGroup
+        android:id="@+id/radioBtnGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle">
+
+        <RadioButton
+            android:id="@+id/radioBtnArguments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/arguments"/>
+
+        <RadioButton
+            android:id="@+id/radioBtnSharedPref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shared_preferences"/>
+
+        <RadioButton
+            android:id="@+id/radioBtnViewModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/viewmodel"/>
+
+        <RadioButton
+            android:id="@+id/radioBtnInterface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/interface_"/>
+
+        <RadioButton
+            android:id="@+id/radioBtnGlobalVariable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/global_variable"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnPassData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pass_data"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioBtnGroup"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

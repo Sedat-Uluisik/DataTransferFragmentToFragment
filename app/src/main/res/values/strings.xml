@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DataTransferFragmentToFragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text">text</string>
+    <string name="arguments">Arguments</string>
+    <string name="shared_preferences">Shared Preferences</string>
+    <string name="viewmodel">ViewModel</string>
+    <string name="select_data_transfer_type">Select data transfer type</string>
+    <string name="interface_">Interface</string>
+    <string name="global_variable">Global Variable</string>
+    <string name="pass_data">Pass Data</string>
+</resources>
