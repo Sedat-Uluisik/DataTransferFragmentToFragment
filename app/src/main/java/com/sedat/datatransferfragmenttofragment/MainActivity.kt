@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         /*
         arguments +
         preferenceDatastore +
-        sharedViewModel
+        sharedViewModel +
         interface
-        globalItem
+        globalItem +
          */
 
     }

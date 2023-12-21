@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -20,6 +21,7 @@ class SecondFragment : Fragment() {
 
     private val args: SecondFragmentArgs by navArgs()
     private lateinit var preferenceDataStoreHelper: PreferenceDataStoreHelper
+    private lateinit var viewModel: ViewModelTransfer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preferenceDataStoreHelper = PreferenceDataStoreHelper(requireContext())
+        viewModel = ViewModelProvider(requireActivity())[ViewModelTransfer::class.java]
 
         //arguments
         //binding.txtData.text = args.dataOfArguments
@@ -45,6 +48,14 @@ class SecondFragment : Fragment() {
                 }
             }
         }*/
+
+        //viewModel
+        /*viewModel.data.observe(viewLifecycleOwner){
+            binding.txtData.text = it
+        }*/
+
+        //global variable
+        binding.txtData.text = GlobalVariable.globalVariable
 
     }
 

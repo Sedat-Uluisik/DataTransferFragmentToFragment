@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sedat.datatransferfragmenttofragment.databinding.FragmentFirstBinding
@@ -20,6 +21,7 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var preferenceDataStoreHelper: PreferenceDataStoreHelper
+    private lateinit var viewModel: ViewModelTransfer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         preferenceDataStoreHelper = PreferenceDataStoreHelper(requireContext())
+        viewModel = ViewModelProvider(requireActivity())[ViewModelTransfer::class.java]
 
         binding.btnPassData.setOnClickListener{
 
@@ -48,6 +51,13 @@ class FirstFragment : Fragment() {
                         findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
                     }
                 }
+            }else if(binding.radioBtnViewModel.isChecked){
+                viewModel.setData(data)
+                findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            }
+            else if(binding.radioBtnGlobalVariable.isChecked){
+                GlobalVariable.globalVariable = data
+                findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
             }
         }
     }
