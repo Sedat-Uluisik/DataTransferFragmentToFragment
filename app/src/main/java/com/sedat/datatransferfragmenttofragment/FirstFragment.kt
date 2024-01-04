@@ -23,11 +23,14 @@ class FirstFragment : Fragment() {
     private lateinit var preferenceDataStoreHelper: PreferenceDataStoreHelper
     private lateinit var viewModel: ViewModelTransfer
 
+    private lateinit var transfer: Transfer
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        transfer = requireActivity() as Transfer
         return binding.root
     }
 
@@ -44,20 +47,25 @@ class FirstFragment : Fragment() {
             if(binding.radioBtnArguments.isChecked){
                 val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(dataOfArguments = data)
                 findNavController().navigate(action)
-            }else if(binding.radioBtnSharedPref.isChecked){
+            }
+            else if(binding.radioBtnSharedPref.isChecked){
                 lifecycleScope.launch(Dispatchers.IO) {
                     preferenceDataStoreHelper.saveData(data)
                     withContext(Dispatchers.Main){
                         findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
                     }
                 }
-            }else if(binding.radioBtnViewModel.isChecked){
+            }
+            else if(binding.radioBtnViewModel.isChecked){
                 viewModel.setData(data)
                 findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
             }
             else if(binding.radioBtnGlobalVariable.isChecked){
                 GlobalVariable.globalVariable = data
                 findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            }
+            else if(binding.radioBtnInterface.isChecked){
+                transfer.passData(data)
             }
         }
     }

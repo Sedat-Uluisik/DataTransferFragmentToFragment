@@ -55,7 +55,11 @@ class SecondFragment : Fragment() {
         }*/
 
         //global variable
-        binding.txtData.text = GlobalVariable.globalVariable
+        //binding.txtData.text = GlobalVariable.globalVariable
+
+        //interface
+        val data = arguments?.getString("txtData")
+        binding.txtData.text = data
 
     }
 
