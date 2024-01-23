@@ -38,7 +38,7 @@ class SecondFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity())[ViewModelTransfer::class.java]
 
         //arguments
-        //binding.txtData.text = args.dataOfArguments
+        binding.txtData.text = args.dataOfArguments
 
         //preferences datastore
         /*lifecycleScope.launch(Dispatchers.IO) {
@@ -55,7 +55,7 @@ class SecondFragment : Fragment() {
         }*/
 
         //global variable
-        //binding.txtData.text = GlobalVariable.globalVariable
+        //binding.txtData.text = GlobalVariable.globalVariable ?: ""
 
         //interface
         val data = arguments?.getString("txtData")
@@ -65,6 +65,7 @@ class SecondFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        GlobalVariable.globalVariable = null
         _binding = null
     }
 }
